@@ -12,7 +12,7 @@ object EventHandler {
   }
 
   def handleEntities(entities: Seq[Entity], events: Seq[(Id, EntityEvent)]): Seq[Entity] = {
-    val evMap = events.groupBy(_._1).toMap.mapValues(seq => seq.map(_._2))
+    val evMap = events.groupBy(_._1).mapValues(seq => seq.map(_._2))
     entities map { e =>
       evMap.get(e.id) match {
         case Some(ev3) =>
