@@ -7,7 +7,7 @@ object EventHandler {
   def handle(entities: Seq[Entity], events: SimOutput): Seq[Entity] =  {
     val (entityEvents, worldEvents) = events
     val updEntities = handleEntities(entities, entityEvents)
-    val updWorld = handleWorld(entities, worldEvents)
+    val updWorld = handleWorld(updEntities, worldEvents)
     updWorld
   }
 
