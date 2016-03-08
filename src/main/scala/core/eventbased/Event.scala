@@ -1,4 +1,4 @@
-package core.immutable
+package core.eventbased
 
 sealed trait Event
 

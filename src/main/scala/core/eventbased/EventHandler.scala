@@ -1,4 +1,4 @@
-package core.immutable
+package core.eventbased
 
 import java.util.UUID
 import scala.collection.immutable.Seq

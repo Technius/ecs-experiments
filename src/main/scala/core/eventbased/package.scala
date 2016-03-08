@@ -3,7 +3,7 @@ package core
 import java.util.UUID
 import scala.collection.immutable.Seq
 
-package object immutable {
+package object eventbased {
   type Id = UUID
   type Entity = (Id, Seq[Component])
   type System = (Seq[Component], Seq[Event])
