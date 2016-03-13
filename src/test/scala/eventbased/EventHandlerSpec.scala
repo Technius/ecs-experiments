@@ -6,6 +6,7 @@ import org.scalatest.prop.PropertyChecks
 import java.util.UUID
 import scala.collection.immutable.Seq
 
+import core.Implicits._
 import core.eventbased._
 
 class EventHandlerSpec extends FlatSpec with PropertyChecks with Matchers {

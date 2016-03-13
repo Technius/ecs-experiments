@@ -2,6 +2,8 @@ package core.eventbased
 
 import scala.collection.immutable.Seq
 
+import core.Implicits._
+
 object Systems {
   val motion: System = { (entities: Seq[Entity]) =>
     val events = for {

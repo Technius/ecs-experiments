@@ -3,6 +3,8 @@ package core.eventbased
 import java.util.UUID
 import scala.collection.immutable.Seq
 
+import core.Implicits._
+
 object EventHandler {
   def handle(entities: Seq[Entity], events: SimOutput): Seq[Entity] =  {
     val (entityEvents, worldEvents) = events
