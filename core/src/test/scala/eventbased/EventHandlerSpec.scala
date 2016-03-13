@@ -29,7 +29,7 @@ class EventHandlerSpec extends FlatSpec with PropertyChecks with Matchers {
       val entity = UUID.randomUUID -> Seq(Component.Position(x, y))
       val event = EntityEvent.Motion(dx, dy, 0)
       val res = EventHandler.handleEntityEvent(entity, event)
-      val Some(p) = res.components.collectFirst { case p: Component.Position => p }
+      val Some(p) = res.componentOf[Component.Position]
       p.x should be (x + dx)
       p.y should be (y + dy)
     }
@@ -43,7 +43,7 @@ class EventHandlerSpec extends FlatSpec with PropertyChecks with Matchers {
       val run = EventHandler.handleEntityEvent _
 
       def extract(e: Entity) =
-        e.components.collectFirst { case p: Component.Position => p }
+        e.componentOf[Component.Position]
 
       val Some(p1) = extract(run(run(entity, event1), event2))
       val Some(p2) = extract(run(run(entity, event2), event1))

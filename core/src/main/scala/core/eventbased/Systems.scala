@@ -8,7 +8,7 @@ object Systems {
   val motion: System = { (entities: Seq[Entity]) =>
     val events = for {
       e <- entities
-      v <- e.components.collectFirst { case c: Component.Velocity => c } // TODO: Write macro for this
+      v <- e.componentOf[Component.Velocity]
     } yield {
       e.id -> EntityEvent.Motion(v.x, v.y, 0)
     }

@@ -26,7 +26,7 @@ object EventHandler {
 
   def handleEntityEvent(entity: Entity, event: Event): Entity = event match {
     case EntityEvent.Motion(dx, dy, dangle) =>
-      val p = entity.components.collectFirst { case p: Component.Position => p }
+      val p = entity.componentOf[Component.Position]
       upd(entity) {
         case p: Component.Position =>
           Some(p.copy(x = p.x + dx, y = p.y + dy, angle = p.angle + p.angle))

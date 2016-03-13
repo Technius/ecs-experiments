@@ -20,7 +20,7 @@ class SystemSpec extends FlatSpec with PropertyChecks with Matchers {
       )
       val sim = Simulation.simulate(List(Systems.motion)) _
       val Seq(e) = sim(World(), entities)
-      val Some(p) = e.components.collectFirst { case c: Component.Position => c }
+      val Some(p) = e.componentOf[Component.Position]
       p.x should === (x + vx)
       p.y should === (y + vy)
     }
